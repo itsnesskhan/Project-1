@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class = "col-8 justify-content-center">
+<h4 class = "alert alert-info text-center m-2">Update User Information</h4>
+    <form action ="" method="POST" class= "shadow">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group mb-">
+            {{ field.label_tag}}
+            {{ field }}
+            <small style = "color:red">{{field.errors | striptags}}</small>
+            </div>
+        {% endfor %} 
+
+        <input type = "submit" class = "btn  btn-primary" value="Update">
+        <a href = "/" class = "btn btn-success ">Back to Home</a>
+       
+
+    </form>
+    
+    
+
+</div>
+
+
+
+
+
+{% endblock content %}
